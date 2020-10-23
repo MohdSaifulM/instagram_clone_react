@@ -18,3 +18,7 @@ Suggested ways to get started:
 
 ## Further further (optional optional)
 For additional practice with react, convert the expense tracker app into a react application.
+
+## To submit the homework
+- fork and clone the repo
+- add your codes and submit a pull request
