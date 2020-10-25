@@ -17,14 +17,17 @@ class App extends Component {
         username: "guru-schnecke",
         url: "https://78.media.tumblr.com/2aec6b42b93a290de8929372faa8b395/tumblr_p222b7Pnwq1wfa5swo3_400.jpg",
         caption: "this is a test caption",
-        comments: [
+        index: 0,
+        comments: [ 
           {
             username: "siusinglai",
-            comment: "Your early today wa? 9:45am"
+            comment: "Your early today wa? 9:45am",
+             
           },
           {
             username: "tristancalleja",
-            comment: "he got a new alarm clock"
+            comment: "he got a new alarm clock",
+            
           }
         ]
       },
@@ -32,10 +35,12 @@ class App extends Component {
         username: "guru-schnecke",
         url: "https://www.ricemedia.co/wp-content/uploads/2018/04/RICE-MEDIA-MASSAGE-UNCLE-TOH-JOB.jpg",
         caption: "this is a different caption",
+        index: 1, 
         comments: [
           {
             username: "",
-            comment: ""
+            comment: "",
+            
           }
         ]
       },
@@ -43,14 +48,17 @@ class App extends Component {
         username: "siusinglai",
         url: "http://www.freegreatpicture.com/files/44/14416-chengdu-impression.jpg",
         caption: "this is a test caption",
+        index: 2,  
         comments: [
           {
             username: "siusinglai",
-            comment: "Flexing Man"
+            comment: "Flexing Man",
+            
           },
           {
             username: "tristancalleja",
-            comment: "sweet sweet sweet"
+            comment: "sweet sweet sweet",
+            
           }
         ]
       },
@@ -58,10 +66,12 @@ class App extends Component {
         username: "tristancalleja",
         url: "https://i.kym-cdn.com/photos/images/facebook/000/945/547/d04.jpg",
         caption: "derpy dog!",
+        index: 3, 
         comments: [
           {
             username: "",
-            comment: ""
+            comment: "",
+            
           }
         ]
       },
@@ -69,10 +79,12 @@ class App extends Component {
         username: "tristancalleja",
         url: "https://via.placeholder.com/150",
         caption: "derpy dog!",
+        index: 4,
         comments: [
           {
             username: "",
-            comment: ""
+            comment: "",
+             
           }
         ]
       },
@@ -80,14 +92,17 @@ class App extends Component {
         username: "siusinglai",
         url: "https://via.placeholder.com/150",
         caption: "derpy dog!",
+        index: 5, 
         comments: [
           {
             username: "siusinglai",
-            comment: "sweet sweet F45!"
+            comment: "sweet sweet F45!",
+            
           },
           {
             username: "tristancalleja",
-            comment: "why you flexing mehn!"
+            comment: "why you flexing mehn!",
+            
           }
         ]
       },
@@ -95,34 +110,42 @@ class App extends Component {
         username: "teren",
         url: "https://cdn.lynda.com/course/439683/439683-637286184374750281-16x9.jpg",
         caption: "I love CSS!",
+        index: 6,
         comments: [
           {
             username: "deb_potato",
-            comment: "Can you teach me CSS?"
+            comment: "Can you teach me CSS?",
+             
           },
           {
             username: "Shawn",
-            comment: "......."
+            comment: ".......",
+             
           },
           {
             username: "Daveli",
-            comment: "I came in like a wrecking ball"
+            comment: "I came in like a wrecking ball",
+             
           },
           {
             username: "Tyrone",
-            comment: "What did you wreck?"
+            comment: "What did you wreck?",
+             
           },
           {
             username: "Nero",
-            comment: "What is CSS?"
+            comment: "What is CSS?",
+            
           },
           {
             username: "Ken",
-            comment: "Bootstrap ah?"
+            comment: "Bootstrap ah?",
+             
           },
           {
             username: "Jonas",
-            comment: "lets just go home"
+            comment: "lets just go home",
+            
           }
         ]
       }
@@ -131,7 +154,7 @@ class App extends Component {
 
   changeHandler = (e) => {
     let newTemp = { ...this.state.temp };
-    newTemp = { ...newTemp, [e.target.name]: e.target.value, comments: [{username: "", comment: ""}] };
+    newTemp = { ...newTemp, [e.target.name]: e.target.value, index: (this.state.posts.length), comments: [{username: "", comment: ""}] };
     this.setState({
       temp: newTemp
     });
@@ -139,7 +162,8 @@ class App extends Component {
 
   clickHandler = () => {
     let postArr = this.state.posts;
-    postArr.unshift(this.state.temp);
+    postArr.push(this.state.temp);
+    // postArr.reverse();
     this.setState({ posts: postArr });
   }
 

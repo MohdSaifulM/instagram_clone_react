@@ -14,6 +14,7 @@ class Post extends Component {
             <div>
                 {this.props.post.map((el, index) => (
                     <div key={index} className="username text-left card">
+                        {console.log(el.index)}
                         <div className="card-body">
                             <img src={ProfilePicture} class="profile__picture img-circle pr-2" />
                             {el.username}
@@ -28,7 +29,7 @@ class Post extends Component {
                             </div>
                         </div>
                         <div className="card-body">
-                            {el.comments === undefined ? "" : <div><Comments comments={el.comments} post={this.props.post}/></div>}
+                            {index == el.index && <div><Comments comments={el.comments}/></div>}
                         </div>
                     </div>
                 ))}

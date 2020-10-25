@@ -9,6 +9,7 @@ class Comments extends Component {
     state = {
         temp: {},
         comments: this.props.comments,
+        
     }
 
     changeHandler = (e) => {
@@ -25,6 +26,7 @@ class Comments extends Component {
     }
 
     render() {
+        console.log(this.props.comments)
         return (
             <div>
                 {this.state.comments.map((el, index) => (
