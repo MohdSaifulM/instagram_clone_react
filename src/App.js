@@ -30,7 +30,13 @@ class App extends Component {
       {
         username: "guru-schnecke",
         url: "https://www.ricemedia.co/wp-content/uploads/2018/04/RICE-MEDIA-MASSAGE-UNCLE-TOH-JOB.jpg",
-        caption: "this is a different caption"
+        caption: "this is a different caption",
+        comments: [
+          {
+            username: "",
+            comment: ""
+          }
+        ]
       },
       {
         username: "siusinglai",
@@ -50,12 +56,24 @@ class App extends Component {
       {
         username: "tristancalleja",
         url: "https://i.kym-cdn.com/photos/images/facebook/000/945/547/d04.jpg",
-        caption: "derpy dog!"
+        caption: "derpy dog!",
+        comments: [
+          {
+            username: "",
+            comment: ""
+          }
+        ]
       },
       {
         username: "tristancalleja",
         url: "https://via.placeholder.com/150",
-        caption: "derpy dog!"
+        caption: "derpy dog!",
+        comments: [
+          {
+            username: "",
+            comment: ""
+          }
+        ]
       },
       {
         username: "siusinglai",
@@ -111,9 +129,15 @@ class App extends Component {
   }
 
   changeHandler = (e) => {
-    let newTemp = {...this.state.temp};
-    newTemp = {...newTemp, [e.target.name]: e.target.value};
-    this.setState({ temp: newTemp });
+    let newTemp = { ...this.state.temp };
+    newTemp = { ...newTemp, [e.target.name]: e.target.value };
+    this.setState({
+      temp: newTemp,
+      comments: [{
+        username: "",
+        comment: "",
+      }]
+    });
   }
 
   clickHandler = () => {
@@ -127,7 +151,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="row card banner sticky-top">
-          <img src="https://fontmeme.com/images/instagram-new-logo.png" className="ig__image mx-5 my-2"/>
+          <img src="https://fontmeme.com/images/instagram-new-logo.png" className="ig__image mx-5 my-2" />
         </div>
         <div className="row mx-auto mt-3">
           <div className="col-4">
@@ -136,9 +160,9 @@ class App extends Component {
           <div className="col-3 text-left">
             <Profile profile={this.state.profile} />
             <div className="py-2">
-              <input className="my-2" placeholder="Username" name="username" onChange={this.changeHandler}/>
-              <input className="my-2" placeholder="URL" name="url" onChange={this.changeHandler}/>
-              <input className="my-2" placeholder="Caption" name="caption" onChange={this.changeHandler}/>
+              <input className="my-2" placeholder="Username" name="username" onChange={this.changeHandler} />
+              <input className="my-2" placeholder="URL" name="url" onChange={this.changeHandler} />
+              <input className="my-2" placeholder="Caption" name="caption" onChange={this.changeHandler} />
               <button className="m-2 btn btn-outline-dark" onClick={this.clickHandler}>Post</button>
             </div>
           </div>
