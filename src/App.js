@@ -5,7 +5,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    temp: {},
+    temp: {
+    },
     profile: {
       username: "sei25sg",
       profile_pic: "",
@@ -130,13 +131,9 @@ class App extends Component {
 
   changeHandler = (e) => {
     let newTemp = { ...this.state.temp };
-    newTemp = { ...newTemp, [e.target.name]: e.target.value };
+    newTemp = { ...newTemp, [e.target.name]: e.target.value, comments: [{username: "", comment: ""}] };
     this.setState({
-      temp: newTemp,
-      comments: [{
-        username: "",
-        comment: "",
-      }]
+      temp: newTemp
     });
   }
 
@@ -144,10 +141,10 @@ class App extends Component {
     let postArr = this.state.posts;
     postArr.unshift(this.state.temp);
     this.setState({ posts: postArr });
-
   }
 
   render() {
+    // console.log(this.state)
     return (
       <div className="App">
         <div className="row card banner sticky-top">
